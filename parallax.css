@@ -1,0 +1,104 @@
+*
+{
+   
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+#wrapper
+{
+     height:100vh;/* yaha per jo hmaare screen kaa viewport kaa height hota hai wo hmne diya  */
+    overflow-x:hidden;/* yaha per image x-axis kii aur move kar rhaa tha ,x-axis ki aur move naa kare uske liye ye value set ki*/
+    overflow-y:auto;/*yaha per image y-axis kii aur mover kare isliye ye value set kiye*/
+    perspective:10px;/*z-axix mode chaalu ho isliye perspective likhe*/ /*yaa hmmare aankho se desktop tak ki duri means z-axis view*/
+}
+.container
+{
+  position:relative;/*background image ke upper foreground image aa sake isliye position:absolute set karenge, lekin absolute hone ke liye nearest ansector non static ho isliye position relative kiye*/
+  display:flex;/* justify content and align-items ko chaalu karene ke liye kiye*/
+  justify-content:center;/* Adventure ko center mein laane ke liye*/
+  align-items:center;
+  transform-style: preserve-3d;/*3d game chalu rahe isliye ye likhte hai*/
+  height:100%;
+  z-index:-1/* kon si image kiske upper aayegi iske liye z-index likhte hai by degault z-index 0 hota hai*/
+  
+}
+.background
+{
+    transform:translateZ(-40px) scale(6);
+}
+.foreground
+{
+transform:translateZ(-20px) scale(3)
+}
+.background,.foreground
+{
+    position:absolute;/*background image and foreground image overlap kar sake*/
+    height:100%;
+    width:100%;
+    z-index:-1;/*Adventure waali line background image and foreground image ke upper aa sake*/
+    object-fit: cover;/* audio and video ko fit karne ke kaam mein bhi aate hai*/
+
+}
+h1{
+    position:absolute;
+    top:5rem;
+
+    font-size:10rem;
+    letter-spacing:4px;
+    color:white;
+    text-shadow:0 0 10px rgba(0,0,0,0.3)
+
+}
+section{
+    background-color:rgb(45,45,45);
+    color:white;
+    padding:5rem 0;
+}
+.secheading
+{
+    font-size:5rem;
+    padding:0 10rem;
+}
+.text
+{
+    font-size:1.5rem;
+    padding:0 10rem;
+    margin:5rem 0;
+
+}
+.desc
+{
+    position:absolute;
+    background-color: white;
+    padding:0.5rem 2.5rem;
+    top:50%;
+    left:50%;
+    transform:translateX(-70%) translateY(-50%);
+    color:black;
+    font-size:3.5rem;
+    font-weight:600;
+   
+
+}
+.bg{
+ position:relative;/* taaki biking and baki header kaa position absolute kar sake taaki ye sab heading background image per overlap kar sake*/
+ width:100%;
+ background-attachment:fixed;  /* ye background ke image ke position ko fixed karta hai,matlab iske binaa jab hum scroll karte hai to image bhi move hota hai lekin iski help se scroll karne se image fixed hoti hai wo move nahi karti hai*/
+ background-position: center;/*ye background image ko center pe le aati hai*/
+ background-size:cover;/* ye diye hue height and width ke anusaar background image ko fit kar deti hai*/
+ height:500px;
+}
+.bg1
+{
+    background-image:url(sport-1.jpg);
+}
+.bg2
+{
+    background-image:url(sport-2.jpg)
+
+}
+.bg3
+{
+    background-image:url(sport-3.jpg)
+}
